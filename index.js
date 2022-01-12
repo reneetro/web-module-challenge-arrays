@@ -45,8 +45,8 @@ Use the copy function below to do the following:
   2. Return a copy of the received array  
 */
 
-function copy(/*your code here*/){
-  /*your code here*/
+function copy(array){
+  return [...array];
 }    
 
 
@@ -63,9 +63,15 @@ Confirm that an array is exactly 31 flavors. Your function should accept:
 For Example: is31Flavors(originalFlavors) will return true if your code is working properly
 */
 
-
-function is31Flavors(/*your code here*/){
- /*your code here*/
+// one parameter
+function is31Flavors(array){
+ //check to see that the lenth of an array is equal to 31//
+ //if it is we return true, false if not true (boolean not string)
+ if (array.length ===31){
+   return true;
+ }else{
+   return false;
+ }
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -80,10 +86,14 @@ Use the addFlavor function below to do the following:
   For example: addFlavor(originalFlavors, "Rainbow Sherbert") should return the array ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla Burnt Almond"]
 */
 
-
-function addFlavor(/*your code here*/){
- /*your code here*/
+// two parameters array and flavor
+//unshift to add
+//return result of the array
+function addFlavor(array, flavor){
+ array.unshift(flavor);
+ return(array);
 }
+
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -96,11 +106,15 @@ Use the removeLastFlavor function below to do the following:
 
   For example: running removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]
 */
+//one parameter array
+//remove the last item using pop
+//return the array
 
-function removeLastFlavor(/*your code here*/){
- /*your code here*/
+function removeLastFlavor(array){
+ array.pop();
+ return array;
 }
-
+console.log(removeLastFlavor(originalFlavors));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -113,12 +127,15 @@ Use the getFlavorByIndex function below to do the following:
 
   For example: running getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully
 */
-
-function getFlavorByIndex(/*your code here*/){
-  /*your code here*/
+// two parameters array and index
+//receive number array[num]
+// if i pass in original flavors and 2 return originalFlavors[2]
+//return array[index]
+function getFlavorByIndex(array, index){
+  return array[index];
 }
 
-
+console.log(getFlavorByIndex(originalFlavors, 5));
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 As corporate wants to add more and more flavors to their lineup, they've realized that they need to remove flavors based on flavor name, 
 as opposed to just arbitrarily removing the first or last flavor. Your task is to get an index by flavor name, and remove that single flavor from the array.  
@@ -133,11 +150,25 @@ Use the removeFlavorByName function below to do the following:
 
   HINT: You can use .splice() for this
 */
+//two parameters array and index
 
-function removeFlavorByName(/*your code here*/){
-  /*your code here*/
+function removeFlavorByName(array, flavor) {
+  let newArray = [...array];
+  for (let i=0; i < newArray.length; i++) {
+    //console.log(array[i]);
+    if (newArray[i] === flavor) {
+      //console.log('if worked');
+      newArray.splice(i, 1);
+      return newArray;
+    }
+  }
+  
 }
 
+console.log(removeFlavorByName(originalFlavors, 'Chocolate'));
+//loop through the array write a conditional that checks to see if the index matches the given flavor
+//if it does remove it
+//reutrn array outside of the loop
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -159,6 +190,11 @@ Use the filterByWord function below to do the following:
 
   DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
 */
+// 2 paramters array and string
+//includes (case sensitive)
+//create filteredArray to push values to 
+//loop through original array and check ach item
+//if the item includes the string i want to push it to the filteredArray
 
 function filterByWord(/*your code here*/){
   /*your code here*/
@@ -194,7 +230,7 @@ Use the getRandomFlavors function and new arrays below to do the following:
   For example: getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors) might return ["Strawberry Cheesecake", "Eggnog,"..."Chocolate"].
 */
 
-
+//move arrays above function
 function getRandomFlavors(/*code here*/){
   /*code here*/
 }
