@@ -154,18 +154,20 @@ Use the removeFlavorByName function below to do the following:
 
 function removeFlavorByName(array, flavor) {
   let newArray = [...array];
+  //console.log('newArray:', newArray)
   for (let i=0; i < newArray.length; i++) {
     //console.log(array[i]);
     if (newArray[i] === flavor) {
       //console.log('if worked');
       newArray.splice(i, 1);
-      return newArray;
+      break;
     }
   }
+  return newArray;
   
 }
 
-console.log(removeFlavorByName(originalFlavors, 'Chocolate'));
+//console.log(removeFlavorByName(originalFlavors, 'Chocolate'));
 //loop through the array write a conditional that checks to see if the index matches the given flavor
 //if it does remove it
 //reutrn array outside of the loop
@@ -196,10 +198,16 @@ Use the filterByWord function below to do the following:
 //loop through original array and check ach item
 //if the item includes the string i want to push it to the filteredArray
 
-function filterByWord(/*your code here*/){
-  /*your code here*/
+function filterByWord(array, flavor) {
+  const filteredArray = [];
+  for (let i=0; i < array.length; i++) {
+    if (array[i].includes(flavor)){
+      filteredArray.push(array[i]);
+    }
+  }
+  return filteredArray;
 }
-
+console.log(filterByWord(originalFlavors, 'Sherbet'));
 
 /* 💪💪💪💪💪🧁🍦🍨 STRETCH 🍨🍦🍫💪💪💪💪💪*/ 
 
